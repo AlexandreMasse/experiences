@@ -1,11 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 
 html {
   overflow: hidden;
+  background-color: #191919;
 }
 
-body {
-  background-color: black;
-}
 
 
 //Particule
@@ -57,9 +60,14 @@ $nombre: 500;
     transform: translate(50vw, 50vh);
   }
 
-  10% {
+  25% {
     opacity: 1;
   }
+
+  80% {
+    opacity: 0.4;
+  }
+
   100% {
     //opacity: 0;
   }
