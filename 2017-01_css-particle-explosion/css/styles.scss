@@ -1,0 +1,66 @@
+
+html {
+  overflow: hidden;
+}
+
+body {
+  background-color: black;
+}
+
+
+//Particule
+$dimensions : 5px;
+$nombre: 500;
+
+
+
+.particule {
+  position: absolute;
+  width:$dimensions;
+  height: $dimensions;
+  opacity: 0;
+
+  border-radius: 50%;
+
+  //Pour chaque particule
+  @for $i from 1 through $nombre {
+    &:nth-child(#{$i}) {
+
+      //couleur random
+      $red: random(256)-1;
+      $green: random(256)-1;
+      $blue: random(256)-1;
+      $color: rgb($red, $green, $blue);
+      background-color: $color;
+
+      //Position ramdom
+      $x: random(100);
+      $y: random(100);
+      transform: translate($x*1vw, $y*1vh);
+
+
+      //Durrée animation random entre 1s et 3s
+      $duree: (random(100)*.01+2)*1s;
+
+      //Delai animation random entre 0 et 3s
+      $delai: (random(300)*.01)*1s;
+
+      animation: move $duree ease-in $delai infinite;
+    }
+  }
+}
+
+//Chause particule démarre au milieu du viewport
+@keyframes move {
+  0% {
+    opacity: 1;
+    transform: translate(50vw, 50vh);
+  }
+
+  10% {
+    opacity: 1;
+  }
+  100% {
+    //opacity: 0;
+  }
+}
